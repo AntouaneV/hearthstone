@@ -5,7 +5,7 @@ function App() {
     <div className="App ">
       <div className="absolute top-0 right-0 z-10">
         <div className="w-14 h-14 mt-6 mr-6 z-10 cursor-pointer">
-          <img src="shutdown.png" alt="pipe wrench" height={60} width={60} />
+          <img src="logout.png" alt="pipe wrench" height={60} width={60} />
         </div>
       </div>
       <img
