@@ -1,4 +1,6 @@
-player = Character()
+from entity.heroe import Heroe 
+
+player = Heroe()
 print(player.hp)  # affiche 100
 player.take_damage(50)
 print(player.hp)  # affiche 50
