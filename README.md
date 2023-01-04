@@ -26,3 +26,4 @@ _ le joueur 1 joue ses cartes (vérification du coup des cartes avec le mana dis
 _ retirer le coup de la carte du mana du joueur
 _ placer la carte et déclencher son effet
 _ 
+
