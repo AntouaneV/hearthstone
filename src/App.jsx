@@ -29,15 +29,15 @@ function App() {
 
           <div className="flex flex-col">
             <button
-              className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white pl-40 pr-40 hover:border-solid hover:border hover:border-orange-400"
+              className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white pl-40 pr-40 hover:border-solid hover:bg-slate-700"
               onClick={playBtn}
             >
               Jouer
             </button>
-            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:border hover:border-orange-400">
+            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
               Aventure
             </button>
-            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:border hover:border-orange-400">
+            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
               Arène
             </button>
           </div>
