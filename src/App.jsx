@@ -6,13 +6,13 @@ function App() {
   return (
     <div className="App ">
       <div className="absolute top-0 right-0 z-10">
-        <div className="w-14 h-14 mt-6 mr-6 z-10 bg-orange-400"></div>
-        <div className="w-14 h-14 mt-6 mr-6 z-10 bg-orange-400"></div>
-        <div className="w-14 h-14 mt-6 mr-6 z-10 bg-orange-400"></div>
+        <div className="w-14 h-14 mt-6 mr-6 z-10 cursor-pointer">
+          <img src="shutdown.png" alt="pipe wrench" height={60} width={60} />
+        </div>
       </div>
       <img
         className="absolute top-0 left-0 w-full h-full object-cover opacity-95 -z-10"
-        src="background2.jpeg"
+        src="background.jpeg"
         alt="background"
       />
       <div className="absolute w-full h-full flex flex-row text-center items-center justify-center">
@@ -35,18 +35,10 @@ function App() {
               Jouer
             </button>
             <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
-              Aventure
+              Ma Collection
             </button>
             <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
-              Arène
-            </button>
-          </div>
-          <div className="flex flex-row mt-6 justify-between">
-            <button className="font-mono bg-orange-400 rounded p-6">
-              Ouvrir des <br /> paquets
-            </button>
-            <button className="font-mono bg-orange-400 rounded p-6">
-              Ma collection
+              Boutique
             </button>
           </div>
         </div>
