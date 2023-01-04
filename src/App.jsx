@@ -1,8 +1,6 @@
-function App() {
-  const playBtn = () => {
-    console.log('Hello');
-  };
+import HomeButtons from './components/Buttons/HomeButtons';
 
+function App() {
   return (
     <div className="App ">
       <div className="absolute top-0 right-0 z-10">
@@ -27,20 +25,7 @@ function App() {
             />
           </div>
 
-          <div className="flex flex-col">
-            <button
-              className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white pl-40 pr-40 hover:border-solid hover:bg-slate-700"
-              onClick={playBtn}
-            >
-              Jouer
-            </button>
-            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
-              Ma Collection
-            </button>
-            <button className="font-mono mt-4 bg-slate-600 rounded pt-4 pb-4 text-white hover:bg-slate-700">
-              Boutique
-            </button>
-          </div>
+          <HomeButtons />
         </div>
       </div>
     </div>
