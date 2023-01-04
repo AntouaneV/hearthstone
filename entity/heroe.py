@@ -7,9 +7,3 @@ class Heroe:
         self.name = name
         self.power = power
         self.imgHeroe = imgHero
-    
-    def take_damage(self, damage):
-        self.hp -= damage
-    
-    def is_dead(self):
-        return self.hp <= 0

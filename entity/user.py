@@ -9,3 +9,9 @@ class User:
         self.status = status
         self.class_ = class_
         self.deck = deck
+
+    def take_damage(self, damage):
+        self.hp -= damage
+    
+    def is_dead(self):
+        return self.hp <= 0
