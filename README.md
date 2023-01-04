@@ -7,3 +7,5 @@ _ Lecture de cartes et effets
 _ Gestion des points de vie des joueurs
 _ Gestion du timer
 _ Gestions des points de vie / attaques de cartes
+
+- test commit RUDY
