@@ -62,3 +62,21 @@ creation des objets decks, users, ...
 ### Fin de partie
 
 * Check points de vie des joueurs
+* Send json
+
+{
+    "id_game":,
+    "time_stamp":,
+    "player_1":{
+        "status":,
+        "quests":{
+
+        }
+    },
+    "player_2":{
+        "status":,
+        "quests":{
+            
+        }
+    }
+}
