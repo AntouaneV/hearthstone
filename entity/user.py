@@ -15,3 +15,12 @@ class User:
     
     def is_dead(self):
         return self.hp <= 0
+
+    def add_mana(self, mana_to_add):
+        self.mana += mana_to_add
+        if self.current_mana > 10:
+            self.current_mana = 10
+    
+    def refresh_mana(self):
+        self.mana = 10
+
