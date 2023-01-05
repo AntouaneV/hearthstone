@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Subscription from './pages/Subscription';
+import Collection from './pages/Collection';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/subscription',
     element: <Subscription />,
+  },
+  {
+    path: '/collection',
+    element: <Collection/>,
   },
 ]);
 
