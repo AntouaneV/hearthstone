@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import os
 from typing import Union
 from pydantic import BaseModel
+import users as u
 
 
 
@@ -30,6 +31,9 @@ async def login(id,password):
         "password": password,
 }
 
+@app.get("/users")
+async def users_info():
+    return u.InsertUser()
   
     
 
