@@ -23,10 +23,9 @@ class Boardgame:
         self.emplacements.pop(emplacement)
         return None
     
-    def attack_card(self, boardgame, carte_A, carte_B):
-        boardgame.emplacements[carte_B].hp - self.emplacements[carte_B].attack
+    #def attack_card(self, boardgame, carte_A, carte_B):
+     #   boardgame.emplacements[carte_B].hp - self.emplacements[carte_B].attack
         
         
-        
-        boardgame.attack_card(boardgame2, iteration_bgA, iteration_bgB)
+        #boardgame.attack_card(boardgame2, iteration_bgA, iteration_bgB)
         
