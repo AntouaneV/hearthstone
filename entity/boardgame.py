@@ -1,3 +1,18 @@
 class Boardgame:
     
+    emplacements:list
+    
     def __init__(self):
+        self.emplacements = [None] * 7
+    
+    def jouer_carte(self, carte):
+        emplacement = int(input("Choisissez une position entre 0 et 6"))
+        while True:
+            if self.emplacements[emplacement] is None and emplacement in range(0,6):
+                self.emplacements[emplacement] = carte
+                print(f"La carte {carte} a été jouée sur l'emplacement {emplacement}.")
+            else:
+                print("Emplacement déjà occupé ou valeur invalide, veuillez choisir un autre emplacement.")
+    
+    def __str__(self):
+        return str(self.emplacements)
