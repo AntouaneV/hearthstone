@@ -1,16 +1,16 @@
 class Card:
-    id:str
-    name:str
-    type:str
-    rarity:str
-    cost:int
-    attack:int
-    health:int
-    text:str
-    mechanics:list
-    hp:int
-    
-    def __init__(self, id:int, name:str, type:str, rarity:str, cost:int, attack:int, health:int, text:str, mechanics:list, hp:int):
+    id: str
+    name: str
+    type: str
+    rarity: str
+    cost: int
+    attack: int
+    health: int
+    text: str
+    mechanics: list
+    hp: int
+
+    def __init__(self, id: int, name: str, type: str, rarity: str, cost: int, attack: int, health: int, text: str, mechanics: list, hp: int):
         """_summary_
 
         Args:
@@ -25,7 +25,7 @@ class Card:
             mechanics (list): power description of the card
             hp (int): life of the card
         """
-        
+
         self.id = id
         self.name = name
         self.type = type
@@ -39,6 +39,6 @@ class Card:
 
     def take_damage(self, damage):
         self.hp -= damage
-    
+
     def is_dead(self):
         return self.hp <= 0
