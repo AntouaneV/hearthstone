@@ -1,0 +1,10 @@
+prerequis : 
+
+npm install fastapi
+npm install uvicorn
+
+demarre le server :
+python main.py
+
+
+
