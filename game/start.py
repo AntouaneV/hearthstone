@@ -2,6 +2,6 @@ from entity.user import User
 import requests
 
 
-url_user=""
+url_user = ""
 requests.get(url_user)
-player1=User()
+player1 = User()

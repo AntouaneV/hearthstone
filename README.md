@@ -72,6 +72,7 @@ creation des objets decks, users, ...
     "time_stamp":,
     "player_1":{
         "status":,
+        "rank":,
         "quests":{
           "nb_spells":,
           "nb_beasts":
@@ -79,6 +80,7 @@ creation des objets decks, users, ...
     },
     "player_2":{
         "status":,
+        "rank":,
         "quests":{
             "nb_spells":,
             "nb_beasts":
