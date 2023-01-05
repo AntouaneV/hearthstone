@@ -13,7 +13,10 @@ Damien SALEM
 ## Langages, versions et dépendances
 
 Python 3.10
-Pygames
+*pip install -r requirements.txt*
+flask 2.2.2
+requests 2.28.1
+pygame 2.1.2
 
 ## Points principaux
 
