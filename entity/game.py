@@ -1,4 +1,5 @@
 class Game:
+
     id:int
     is_in_progress:bool
     
