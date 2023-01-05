@@ -1,6 +1,6 @@
 # Hearthstone game engine
 
-## Partiticants
+## Participants
 
 Ayse YILDRIM
 Ali-Haïdar ATIA
@@ -13,13 +13,17 @@ Damien SALEM
 ## Langages, versions et dépendances
 
 Python 3.10
-Pygames
+*pip install -r requirements.txt*
+flask 2.2.2
+requests 2.28.1
+pygame 2.1.2
 
 ## Points principaux
 
 Structure de données
 BDD résultats de partie (json)
 Règles du jeu (fontions faisant avancer le jeu)
+API pour être contacté par l'interface
 Interface
 
 ## Déroulement du jeu
@@ -62,21 +66,25 @@ creation des objets decks, users, ...
 ### Fin de partie
 
 * Check points de vie des joueurs
-* Send json
+* Send json result:
 
 {
     "id_game":,
     "time_stamp":,
     "player_1":{
         "status":,
+        "rank":,
         "quests":{
-
+          "nb_spells":,
+          "nb_beasts":
         }
     },
     "player_2":{
         "status":,
+        "rank":,
         "quests":{
-            
+            "nb_spells":,
+            "nb_beasts":
         }
     }
 }
