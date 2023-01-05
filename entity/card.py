@@ -8,8 +8,9 @@ class Card:
     health:int
     text:str
     mechanics:list
+    hp:int
     
-    def __init__(self, id:int, name:str, type:str, rarity:str, cost:int, attack:int, health:int, text:str, mechanics:list):
+    def __init__(self, id:int, name:str, type:str, rarity:str, cost:int, attack:int, health:int, text:str, mechanics:list, hp:int):
         """_summary_
 
         Args:
@@ -22,6 +23,7 @@ class Card:
             health (int): life of the card
             text (str): description of the card
             mechanics (list): power description of the card
+            hp (int): life of the card
         """
         
         self.id = id
@@ -33,3 +35,10 @@ class Card:
         self.health = health
         self.text = text
         self.mechanics = mechanics
+        self.hp = hp
+
+    def take_damage(self, damage):
+        self.hp -= damage
+    
+    def is_dead(self):
+        return self.hp <= 0
