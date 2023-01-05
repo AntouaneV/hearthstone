@@ -1,6 +1,7 @@
 import random
 from card import Card
 
+
 class Deck:
     def __init__(self):
         # Initialise la liste de cartes avec une instance de Card pour chaque combinaison de valeur et de symbole
