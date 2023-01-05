@@ -9,10 +9,14 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.post("/")
+@app.post("/game")
 async def start_game():
     game= Game()
-    return game.
+    return game.id
+
+@app.get("/game/{id}")
+async def find_game(id):
+    return {"id":id}
 
 if __name__=="__main__":
     os.system("uvicorn main:app --reload")
