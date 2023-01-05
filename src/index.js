@@ -24,6 +24,10 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: '/collection',
+    element: <Collection />,
+  },
+  {
     path: '/subscription',
     element: <Subscription />,
   },
