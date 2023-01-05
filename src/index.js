@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Shop from './pages/Shop';
+import Subscription from './pages/Subscription';
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: '/shop',
     element: <Shop />,
+  },
+  {
+    path: '/subscription',
+    element: <Subscription />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ]);
 
