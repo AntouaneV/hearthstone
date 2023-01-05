@@ -1,9 +1,21 @@
+import axios from 'axios';
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HomeButtons from '../components/Buttons/HomeButtons';
 
 function Collection() {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:5000/cards').then((response) => {
+      setData(response.data);
+      console.log(response.data)
+    });
+  },[])
+
   const goBack = () => {
     navigate('/');
   };
@@ -49,11 +61,16 @@ function Collection() {
             />
           </div>
           <div className="flex flex-row flex-wrap text-center items-center justify-start">
-            <div className="w-56 h-72 bg-green-200 m-2 rounded-sm"></div>
-            <div className="w-56 h-72 bg-green-200 m-2 rounded-sm"></div>
-            <div className="w-56 h-72 bg-green-200 m-2 rounded-sm"></div>
-            <div className="w-56 h-72 bg-green-200 m-2 rounded-sm"></div>
-            <div className="w-56 h-72 bg-green-200 m-2 rounded-sm"></div>
+            {
+              data.map((data_unit) => 
+              <div key={data_unit.id} className="w-56 h-72 bg-green-200 m-2 rounded-sm text-left p-2">
+                <h1>name : {data_unit.name}</h1>
+                <h1>playerClass : {data_unit.playerClass}</h1>
+                <h1>type : {data_unit.type}</h1>
+                <h1>text : {data_unit.text}</h1>
+                </div>
+              )
+            }
           </div>
         </div>
       </div>

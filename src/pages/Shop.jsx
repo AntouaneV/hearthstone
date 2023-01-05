@@ -26,8 +26,8 @@ function Shop() {
         src="background.jpeg"
         alt="background"
       />
-      <div className="absolute w-full h-full flex flex-row text-center items-center justify-center">
-        <div className="flex flex-col bg-slate-800 opacity-70 rounded p-6">
+      <div className="relative w-screen h-screen flex flex-col text-center items-center justify-center p-4">
+        <div className="bg-slate-800 opacity-70 rounded h-screen overflow-y-scroll p-4">
           <div className="flex text-center items-center justify-center">
             <img
               className=""
