@@ -1,3 +1,5 @@
+from card import Card
+
 class Boardgame:
     
     emplacements:list
@@ -14,11 +16,17 @@ class Boardgame:
             else:
                 print("Emplacement déjà occupé ou valeur invalide, veuillez choisir un autre emplacement.")
     
-    def __str__(self):
-        return str(self.emplacements)
+    def __str__(self, bordgame:class):
+        return str(bordgame.emplacements)., str(self.emplacements)
 
     def remove_card(self, emplacement):
         self.emplacements.pop(emplacement)
         return None
     
-    def 
+    def attack_card(self, boardgame, carte_A, carte_B):
+        boardgame.emplacements[carte_B].hp - self.emplacements[carte_B].attack
+        
+        
+        
+        boardgame.attack_card(boardgame2, iteration_bgA, iteration_bgB)
+        
