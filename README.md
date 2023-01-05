@@ -1,6 +1,6 @@
 # Hearthstone game engine
 
-## Partiticants
+## Participants
 
 Ayse YILDRIM
 Ali-Haïdar ATIA
@@ -65,7 +65,7 @@ creation des objets decks, users, ...
 ### Fin de partie
 
 * Check points de vie des joueurs
-* Send json
+* Send json result:
 
 {
     "id_game":,
@@ -73,13 +73,15 @@ creation des objets decks, users, ...
     "player_1":{
         "status":,
         "quests":{
-
+          "nb_spells":,
+          "nb_beasts":
         }
     },
     "player_2":{
         "status":,
         "quests":{
-            
+            "nb_spells":,
+            "nb_beasts":
         }
     }
 }
