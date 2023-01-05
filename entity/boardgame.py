@@ -16,3 +16,9 @@ class Boardgame:
     
     def __str__(self):
         return str(self.emplacements)
+
+    def remove_card(self, emplacement):
+        self.emplacements.pop(emplacement)
+        return None
+    
+    def 
