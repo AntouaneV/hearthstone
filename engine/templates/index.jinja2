@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Game {{id}}</title>
+</head>
+<body>
+    <table>
+            {% for card in card_list %}
+                <tr>
+                    <td>{{card_list.index(card)}}</td>
+                    <td>{{card.name}}</td>
+                    <td>{{card.text}}</td>
+                </tr>
+            {% endfor %}
+    </table>
+    <br>
+    <input type="text" id="choice" name="name" placeholder="please choose a card to play" required size="26">
+</body>
+</html>
