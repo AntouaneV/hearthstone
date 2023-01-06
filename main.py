@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Form, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 import os
 from entity.game import Game
-from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import json
 import pygame
@@ -9,8 +10,7 @@ import sys
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
@@ -35,6 +35,25 @@ async def start_game():
     global GAME
     GAME = Game(user)
     return GAME.id
+inp=""
+
+
+@app.post('/disable/{name}')
+def disable_cat(name: str):
+    inp = {name}  
+    return inp    
+print(inp)
+
+# @app.get("/game/{id}", response_class=HTMLResponse)
+# async def find_game(request: Request, id):
+#     return templates.TemplateResponse("game.html", {
+#         "request": request, 
+#         "id": id,
+#         "player1": "Moi",
+#         "hero1": "Mage",
+#         "player2": "Toi",
+#         "hero2": "Elfe",
+#         })
 
 
 @app.get("/game/{id}", response_class=HTMLResponse)
@@ -72,6 +91,7 @@ async def find_game(request: Request, id):
         "request": request,
         "id": id,
         "card_list": GAME.user.hand.hand})
+
 
 
 if __name__ == "__main__":
