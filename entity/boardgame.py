@@ -1,11 +1,11 @@
-from card import Card
+from entity.card import Card
 
 class Boardgame:
 
     emplacements: list
 
     def __init__(self):
-        self.emplacements = [None] * 7
+        self.emplacements = []
 
     def jouer_carte(self, carte):
         emplacement = int(input("Choisissez une position entre 0 et 6"))

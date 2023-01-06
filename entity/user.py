@@ -1,6 +1,7 @@
 from entity.hero import Hero
 from entity.deck import Deck
 from entity.hand import Hand
+from entity.boardgame import Boardgame
 
 
 class User:
@@ -12,6 +13,7 @@ class User:
         self.armor = 0
         self.weapon = {}
         self.status = {}
+        self.boardgame=Boardgame()
         self.class_ = Hero(hero["name"],hero["power"])
         self.deck = Deck(deck)
         self.hand= Hand(self.deck)

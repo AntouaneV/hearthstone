@@ -13,6 +13,8 @@
             {% endfor %}
     </table>
     <br>
-    <input type="text" id="choice" name="name" placeholder="please choose a card to play" required size="26">
+    <form method="POST" action="/game/">
+        <input type="text" id="choice" name="name" placeholder="please choose a card to play" required size="26">
+    </form>
 </body>
 </html>

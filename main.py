@@ -5,8 +5,6 @@ import os
 from entity.game import Game
 from fastapi.templating import Jinja2Templates
 import json
-import pygame
-import sys
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -36,16 +34,14 @@ async def start_game():
     global GAME
     GAME = Game(user)
     return GAME.id
-inp = ""
 
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
     inp = {name}
+    print(inp)
     return inp
 
-
-print(inp)
 
 # @app.get("/game/{id}", response_class=HTMLResponse)
 # async def find_game(request: Request, id):
@@ -61,40 +57,23 @@ print(inp)
 
 @app.get("/game/{id}", response_class=HTMLResponse)
 async def find_game(request: Request, id):
-    # pygame.init()
-    # # Créer une fenêtre de 800x600 pixels
-    # fenetre = pygame.display.set_mode((800, 600))
-    # # Définir la couleur de fond de la fenêtre en blanc
-    # fenetre.fill((255, 255, 255))
-    # # Créer une police Arial de taille 36
-    # police = pygame.font.SysFont("comicsansms", 20)
-    # # Parcourir la liste de cartes
-    # x = 0
-    # y = 0
-    # for carte in GAME.user.hand.hand:
-    #     x += 40
-    #     y += 40
-    #     # Créer une image de texte à partir du texte de la carte en utilisant la police et en spécifiant la couleur blanche
-    #     image_texte = police.render(carte.text, True, (255, 255, 255))
-    #     # Obtenir les dimensions de l'image de texte
-    #     largeur, hauteur = image_texte.get_size()
-    #     # Dessiner un rectangle noir de la taille de l'image de texte autour de cette dernière
-    #     pygame.draw.rect(fenetre, (0, 0, 0), (60,60 , largeur, hauteur))
-    #     # Coller l'image de texte sur la fenêtre à la position (10, 10)
-    #     fenetre.blit(image_texte, (x, y))
-    #     # Mettre à jour la fenêtre
-    #     pygame.display.update()
-    # # Attendre que l'utilisateur ferme la fenêtre
-    # while True:
-    #     for event in pygame.event.get():
-    #         if event.type == pygame.QUIT:
-    #             pygame.quit()
-    #             sys.exit()
     return templates.TemplateResponse("index.jinja2", {
         "request": request,
         "id": id,
-        "card_list": GAME.user.hand.hand})
+        "user_card_list": GAME.user.hand.cards_in_hand,
+        "bot_card_list":GAME.user.hand.cards_in_hand,
+        "user_bord":GAME.user.boardgame,
+        "bot_board":GAME.bot.boardgame
+        })
 
+@app.post("/game/{id}", response_class=HTMLResponse)
+async def  game_action(request:Request,id):
+    return templates.TemplateResponse("index.jinja2", {
+        "request": request,
+        "id": id,
+        "user_card_list": GAME.user.hand.cards_in_hand,
+        "bot_card_list": GAME.bot.hand.cards_in_hand
+        })
 
 if __name__ == "__main__":
     os.system("uvicorn main:app --reload")
