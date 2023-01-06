@@ -12,6 +12,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -35,19 +36,21 @@ async def start_game():
     global GAME
     GAME = Game(user)
     return GAME.id
-inp=""
+inp = ""
 
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
-    inp = {name}  
-    return inp    
+    inp = {name}
+    return inp
+
+
 print(inp)
 
 # @app.get("/game/{id}", response_class=HTMLResponse)
 # async def find_game(request: Request, id):
 #     return templates.TemplateResponse("game.html", {
-#         "request": request, 
+#         "request": request,
 #         "id": id,
 #         "player1": "Moi",
 #         "hero1": "Mage",
@@ -91,7 +94,6 @@ async def find_game(request: Request, id):
         "request": request,
         "id": id,
         "card_list": GAME.user.hand.hand})
-
 
 
 if __name__ == "__main__":
