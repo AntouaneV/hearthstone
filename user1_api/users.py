@@ -9,6 +9,15 @@ def InsertUser():
     records = cursor.fetchall()
     return records    
 
+
+def FindUser(user_id) :
+    db = connectDB()
+    mySql_select_query = """SELECT * FROM users WHERE id = %s"""
+    cursor = db.cursor()
+    cursor.execute(mySql_select_query, (user_id,))
+    records = cursor.fetchall()
+    return records   
+
 def create_user(username, password, email):
     db = connectDB()
     insert_query = "INSERT INTO users (username, password,email) VALUES (%s, %s, %s)"
