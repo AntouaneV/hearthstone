@@ -2,10 +2,17 @@ import json
 from flask import Flask, render_template, request
 from random import randint
 from transaction import Transaction
+import requests
 
 app = Flask(__name__)
 
 tran = Transaction()
+
+# @app.route("/users",methods=['POST','GET'])
+# def ff():
+#     aaa = json.dumps({"id_user":12, "dhbdbg":"sfslfndflk"})
+#     print(aaa)
+#     return aaa
 
 @app.route("/")
 def index():
@@ -23,16 +30,12 @@ def achat():
     code     = request.form['code']
     cvc      = request.form['cvc']
     save     = True
-
-    print(save)
+    pack     = request.form['pack']
 
     # P2
-    id_user  = 1
+    id_user  = ((requests.get("http://127.0.0.1:5001/users")).json())['user_id']
     id_achat = 1
     prix     = 10
-    category = "card"
-    id_cards = [1,2,3,4,5]
-    label_achat = "carte-x"
 
     obj_cb = {
         "id_user"          : id_user,
@@ -47,11 +50,10 @@ def achat():
     obj_achat = {
         "user_id"          : id_user,
         "id_achat"         : id_achat,
-        "id_cards"         : id_cards,
-        "label_achat"      : label_achat,
-        "category"         : category,
         "prix"             : prix,
-        "payement_accepte" : payement_is_accepted()
+        "payement_accepte" : payement_is_accepted(),
+        "nom_pack"         : pack
+
     }
 
     tran.insert_data_payement(obj_achat)
