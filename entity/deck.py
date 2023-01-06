@@ -7,7 +7,8 @@ class Deck:
     card_list: List[Card] = []
 
     def __init__(self, deck: list):
-        # Initialise la liste de cartes avec une instance de Card pour chaque combinaison de valeur et de symbole
+        # Initialise la liste de cartes avec une instance de Card
+        # pour chaque combinaison de valeur et de symbole
         for nb_card in deck:
             card = deck[nb_card][0]
             self.card_list.append(Card(

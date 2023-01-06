@@ -11,7 +11,9 @@ class Card:
     img: str
     armor: int
 
-    def __init__(self, id: int, name: str, type: str, cost: int, attack: int, health: int, text: str, mechanics: list | str, hp: int, img: str, armor: int):
+    def __init__(self, id: int, name: str, type: str, cost: int,
+                 attack: int, health: int, text: str,
+                 mechanics: list | str, hp: int, img: str, armor: int):
         """_summary_
 
         Args:

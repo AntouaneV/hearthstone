@@ -18,9 +18,10 @@ class User:
         self.armor = 0
         self.weapon = {}
         self.status = {}
-        self.hero = Hero(hero["name"],hero["power"])
+        self.hero = Hero(hero["name"], hero["power"])
         self.deck = Deck(deck)
-        self.hand= Hand(self.deck)
+        self.hand = Hand(self.deck)
+        self.boardgame = Boardgame()
 
     def take_damage(self, damage):
         self.hp -= damage

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form, Request
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import os
@@ -26,7 +26,8 @@ async def start_game():
             "name": "Jaina Proudmore",
             "power": {
                 "name": "fireball",
-                "description": "inflige 1 point de dégâts à n'importe quelle cible."
+                "description": "inflige 1 point de dégâts à\
+                    n'importe quelle cible."
             }
         },
         "deck": json.load(testfile)
@@ -35,10 +36,12 @@ async def start_game():
     GAME = Game(user)
     return GAME.id
 
+
 @app.post('/draw-card/{id}')
 def draw_card(id: int):
     inp = {id}
     return inp
+
 
 @app.post('/drop-card/{id}')
 def drop_card(id: int):
@@ -48,7 +51,7 @@ def drop_card(id: int):
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
-    global inp 
+    global inp
     inp = {name}
     print(inp)
     return inp
@@ -67,34 +70,51 @@ def disable_cat(name: str):
 
 
 @app.get("/games/{id}", response_class=HTMLResponse)
-async def find_game(request: Request, id):
+async def play_game(request: Request, id):
     return templates.TemplateResponse("index.jinja2", {
         "request": request,
         "id": id,
+        "user_name": GAME.user.name,
+        "user_hero_name": GAME.user.hero.name,
+        "user_hero_power": GAME.user.hero.power,
+        "bot_name": GAME.bot.name,
+        "bot_hero_name": GAME.bot.hero.name,
+        "bot_hero_power": GAME.bot.hero.power,
         "user_card_list": GAME.user.hand.cards_in_hand,
-        "bot_card_list":GAME.user.hand.cards_in_hand,
-        "user_bord":GAME.user.boardgame,
-        "bot_board":GAME.bot.boardgame})
+        "bot_card_list": GAME.user.hand.cards_in_hand,
+        "user_bord": GAME.user.boardgame,
+        "bot_board": GAME.bot.boardgame
+    })
+
 
 @app.get("/game/{id}", response_class=HTMLResponse)
 async def find_game(request: Request, id):
     return templates.TemplateResponse("game.html", {
         "request": request,
         "id": id,
-        "card_list": GAME.user.hand.hand,
+        "card_list": GAME.user.hand.cards_in_hand,
         "player1": GAME.user.name,
         "hero1": GAME.user.hero.name,
         "hero1_power": GAME.user.hero.power["name"],
-        })
+    })
+
 
 @app.post("/games/{id}", response_class=HTMLResponse)
-async def  game_action(request:Request,id):
+async def game_action(request: Request, id):
     return templates.TemplateResponse("index.jinja2", {
         "request": request,
         "id": id,
+        "user_name": GAME.user.name,
+        "user_hero_name": GAME.user.hero.name,
+        "user_hero_power": GAME.user.hero.power,
+        "bot_name": GAME.bot.name,
+        "bot_hero_name": GAME.bot.hero.name,
+        "bot_hero_power": GAME.bot.hero.power,
         "user_card_list": GAME.user.hand.cards_in_hand,
-        "bot_card_list": GAME.bot.hand.cards_in_hand
-        })
+        "bot_card_list": GAME.user.hand.cards_in_hand,
+        "user_bord": GAME.user.boardgame,
+        "bot_board": GAME.bot.boardgame
+    })
 
 if __name__ == "__main__":
     os.system("uvicorn main:app --reload")
