@@ -6,7 +6,7 @@
     <table>
             {% for card in card_list %}
                 <tr>
-                    <td>{{card.id}}</td>
+                    <td>{{card_list.index(card)}}</td>
                     <td>{{card.name}}</td>
                     <td>{{card.text}}</td>
                 </tr>

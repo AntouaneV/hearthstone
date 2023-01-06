@@ -14,7 +14,7 @@ class User:
         self.status = {}
         self.class_ = Hero(hero["name"],hero["power"])
         self.deck = Deck(deck)
-        self.hand= Hand()
+        self.hand= Hand(self.deck)
 
     def take_damage(self, damage):
         self.hp -= damage

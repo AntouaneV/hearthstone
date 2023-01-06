@@ -23,6 +23,7 @@ class Deck:
                 card["img"],
                 card["armor"]
             ))
+        self.shuffle()
 
     def shuffle(self):
         random.shuffle(self.card_list)
