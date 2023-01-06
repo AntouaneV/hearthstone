@@ -1,5 +1,6 @@
 from entity.hero import Hero
 from entity.deck import Deck
+from entity.hand import Hand
 
 
 class User:
@@ -13,6 +14,7 @@ class User:
         self.status = {}
         self.class_ = Hero(hero["name"],hero["power"])
         self.deck = Deck(deck)
+        self.hand= Hand()
 
     def take_damage(self, damage):
         self.hp -= damage
