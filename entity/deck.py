@@ -1,18 +1,41 @@
 import random
-from card import Card
+from entity.card import Card
 from typing import List
 
 
 class Deck:
-    cardlist:List[Card]
-    def __init__(self,deck:list):
+    card_list: List[Card] = []
+
+    def __init__(self, deck: list):
         # Initialise la liste de cartes avec une instance de Card pour chaque combinaison de valeur et de symbole
-        for card in deck:
-            self.cardlist.append(Card(card))
-        # ID et Type sont deux listes qui contiennent les valeurs et les symboles possibles pour les cartes d'un jeu de cartes standard
+        for nb_card in deck:
+            card = deck[nb_card][0]
+            self.card_list.append(Card(
+                card["id"],
+                card["name"],
+                card["type"],
+                card["cost"],
+                card["attack"],
+                card["health"],
+                card["text"],
+                card["mechanics"],
+                card["health"],
+                card["img"],
+                card["armor"]
+            ))
 
     def shuffle(self):
-        random.shuffle(self.cards)
+        random.shuffle(self.card_list)
 
-    def deal(self):
-        return self.cards.pop(0)
+    def draw_one(self):
+        return self.card_list.pop(0)
+
+    def draw_multiple(self, nb_card: int):
+        card_drawn = []
+        if nb_card > 0:
+            while nb_card != 0:
+                card_drawn.append(self.card_list.pop(0))
+                nb_card -= 1
+            return card_drawn
+        else:
+            return card_drawn

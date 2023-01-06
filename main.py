@@ -1,12 +1,12 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import os
 from entity.game import Game
-import jinja2
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import json
+
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/")
@@ -14,7 +14,7 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.post("/game")
+@app.get("/game")
 async def start_game():
     testfile = open("data/deck.json", "r")
     user = {
@@ -29,14 +29,18 @@ async def start_game():
         },
         "deck": json.load(testfile)
     }
-    game = Game(user)
-    return game.id
+    global GAME
+    GAME = Game(user)
+    return GAME.id
 
 
-@app.get("/game/{id}")
-async def find_game(id):
-    # affichage sur un template html de la partie
-    return {"id": id}
+@app.get("/game/{id}", response_class=HTMLResponse)
+async def find_game(request: Request, id):
+
+    return templates.TemplateResponse("index.jinja2", {
+        "request": request,
+        "id": id,
+        "card_list": GAME.user.deck.card_list})
 
 if __name__ == "__main__":
     os.system("uvicorn main:app --reload")

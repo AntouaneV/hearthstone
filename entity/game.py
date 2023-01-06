@@ -1,4 +1,5 @@
 from entity.user import User
+import random
 
 
 class Game:
@@ -8,6 +9,7 @@ class Game:
 
     def __init__(self, user):
         self.user = User(user["id"],user["name"],user["hero"],user["deck"])
+        self.id=random.randint(1,99)
         self.is_in_progress = True
 
     def set_up(self):
