@@ -1,18 +1,24 @@
+from entity.hero import Hero
+from entity.deck import Deck
+from entity.hand import Hand
+
+
 class User:
-    def __init__(self, id, nom, hp, mana, armor, weapon, status, class_, deck):
+    def __init__(self, id, nom, hero, deck):
         self.id = id
         self.nom = nom
-        self.hp = hp
-        self.mana = mana
-        self.armor = armor
-        self.weapon = weapon
-        self.status = status
-        self.class_ = class_
-        self.deck = deck
+        self.hp = 30
+        self.mana = 0
+        self.armor = 0
+        self.weapon = {}
+        self.status = {}
+        self.class_ = Hero(hero["name"],hero["power"])
+        self.deck = Deck(deck)
+        self.hand= Hand()
 
     def take_damage(self, damage):
         self.hp -= damage
-    
+
     def is_dead(self):
         return self.hp <= 0
 
@@ -20,7 +26,6 @@ class User:
         self.mana += mana_to_add
         if self.current_mana > 10:
             self.current_mana = 10
-    
+
     def refresh_mana(self):
         self.mana = 10
-

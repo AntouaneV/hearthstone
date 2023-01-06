@@ -17,16 +17,11 @@ class Boardgame:
             else:
                 print("Emplacement déjà occupé ou valeur invalide, veuillez choisir un autre emplacement.")
     
-    def __str__(self, bordgame:class):
-        return str(bordgame.emplacements)., str(self.emplacements)
+    def __str__(self, bordgame):
+        return str(bordgame.emplacements), str(self.emplacements)
 
-    def remove_card(self, emplacement):
+    def remove_card(self, emplacement:int):
         self.emplacements.pop(emplacement)
         return None
     
-    #def attack_card(self, boardgame, carte_A, carte_B):
-     #   boardgame.emplacements[carte_B].hp - self.emplacements[carte_B].attack
-        
-        
-        #boardgame.attack_card(boardgame2, iteration_bgA, iteration_bgB)
         
