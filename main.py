@@ -13,7 +13,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to the Hearthstone !"}
 
 
 @app.get("/game")
@@ -35,9 +35,20 @@ async def start_game():
     GAME = Game(user)
     return GAME.id
 
+@app.post('/draw-card/{id}')
+def draw_card(id: int):
+    inp = {id}
+    return inp
+
+@app.post('/drop-card/{id}')
+def drop_card(id: int):
+    inp = {id}
+    return inp
+
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
+    global inp 
     inp = {name}
     print(inp)
     return inp
@@ -63,7 +74,17 @@ async def find_game(request: Request, id):
         "user_card_list": GAME.user.hand.cards_in_hand,
         "bot_card_list":GAME.user.hand.cards_in_hand,
         "user_bord":GAME.user.boardgame,
-        "bot_board":GAME.bot.boardgame
+        "bot_board":GAME.bot.boardgame})
+
+@app.get("/game/{id}", response_class=HTMLResponse)
+async def find_game(request: Request, id):
+    return templates.TemplateResponse("game.html", {
+        "request": request,
+        "id": id,
+        "card_list": GAME.user.hand.hand,
+        "player1": GAME.user.name,
+        "hero1": GAME.user.hero.name,
+        "hero1_power": GAME.user.hero.power["name"],
         })
 
 @app.post("/game/{id}", response_class=HTMLResponse)
