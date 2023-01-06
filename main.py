@@ -2,9 +2,7 @@ from fastapi import FastAPI
 import os
 from typing import Union
 from pydantic import BaseModel
-import users as u
-
-
+import user as u
 
 
 class User(BaseModel):
@@ -33,7 +31,7 @@ async def login(id,password):
 
 @app.get("/users")
 async def users_info():
-    return u.InsertUser()
+    print(u.InsertUser())
   
     
 
@@ -43,5 +41,5 @@ async def users_info():
     
 
 
-if __name__=="__main__":
-    os.system("uvicorn main:app --reload")
+# if __name__=="__main__":
+os.system("uvicorn main:app --reload")
