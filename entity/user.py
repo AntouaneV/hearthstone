@@ -4,15 +4,20 @@ from entity.hand import Hand
 
 
 class User:
-    def __init__(self, id, nom, hero, deck):
+    id: str
+    name: str
+    hero: Hero
+    deck: Deck
+
+    def __init__(self, id, name, hero, deck):
         self.id = id
-        self.nom = nom
+        self.name = name
         self.hp = 30
         self.mana = 0
         self.armor = 0
         self.weapon = {}
         self.status = {}
-        self.class_ = Hero(hero["name"],hero["power"])
+        self.hero = Hero(hero["name"],hero["power"])
         self.deck = Deck(deck)
         self.hand= Hand(self.deck)
 

@@ -15,7 +15,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to the Hearthstone !"}
 
 
 @app.get("/game")
@@ -36,16 +36,16 @@ async def start_game():
     global GAME
     GAME = Game(user)
     return GAME.id
-inp = ""
-
+    
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
+    global inp 
     inp = {name}
+    print(inp)
     return inp
 
 
-print(inp)
 
 # @app.get("/game/{id}", response_class=HTMLResponse)
 # async def find_game(request: Request, id):
@@ -90,10 +90,14 @@ async def find_game(request: Request, id):
     #         if event.type == pygame.QUIT:
     #             pygame.quit()
     #             sys.exit()
-    return templates.TemplateResponse("index.jinja2", {
+    return templates.TemplateResponse("game.html", {
         "request": request,
         "id": id,
-        "card_list": GAME.user.hand.hand})
+        "card_list": GAME.user.hand.hand,
+        "player1": GAME.user.name,
+        "hero1": GAME.user.hero.name,
+        "hero1_power": GAME.user.hero.power["name"],
+        })
 
 
 if __name__ == "__main__":

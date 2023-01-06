@@ -23,19 +23,30 @@
 </head>
 <body>
     <h1>Game n°{{ id }}</h1>
-    <form id="myForm">
-        <label for="catName">Enter a category name to disable:</label><br>
-        <input type="text" id="catName" name="catName">
-        <input class="submit" type="submit" value="Submit">
-     </form>
-     <div id="response"></div>
+    <h2>Player: {{ player1 }}</h2>
     <div>
-        <h2></h2>
+        <h2>Hero</h2>
         <p>{{ hero1 }}</p>
+        <p>Pouvoir du hero:{{ hero1_power }}</p>
         <div>
             <h2>Hand</h2>
         </div>
-        <p>{{ player1 }}</p>
+        <table>
+         {% for card in card_list %}
+             <tr>
+                 <td>{{card_list.index(card)}}</td>
+                 <td>{{card.name}}</td>
+                 <td>{{card.text}}</td>
+             </tr>
+         {% endfor %}
+         </table>
     </div>
+    
+    <form id="myForm">
+      <label for="catName">Enter a category name to disable:</label><br>
+      <input type="text" id="catName" name="catName">
+      <input class="submit" type="submit" value="Submit">
+   </form>
+   <div id="response"></div>
 </body>
 </html>
