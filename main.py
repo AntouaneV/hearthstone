@@ -66,7 +66,7 @@ def disable_cat(name: str):
 #         })
 
 
-@app.get("/game/{id}", response_class=HTMLResponse)
+@app.get("/games/{id}", response_class=HTMLResponse)
 async def find_game(request: Request, id):
     return templates.TemplateResponse("index.jinja2", {
         "request": request,
@@ -87,7 +87,7 @@ async def find_game(request: Request, id):
         "hero1_power": GAME.user.hero.power["name"],
         })
 
-@app.post("/game/{id}", response_class=HTMLResponse)
+@app.post("/games/{id}", response_class=HTMLResponse)
 async def  game_action(request:Request,id):
     return templates.TemplateResponse("index.jinja2", {
         "request": request,
