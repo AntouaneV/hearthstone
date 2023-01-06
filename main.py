@@ -38,6 +38,17 @@ async def start_game():
     return GAME.id
 inp = ""
 
+@app.post('/draw-card/{id}')
+def draw_card(id: int):
+    inp = {id}
+    return inp
+
+@app.post('/drop-card/{id}')
+def drop_card(id: int):
+    inp = {id}
+    return inp
+
+
 
 @app.post('/disable/{name}')
 def disable_cat(name: str):
